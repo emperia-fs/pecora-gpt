@@ -340,100 +340,10 @@
 
     .law-desc { color: var(--mid); line-height: 1.5; }
 
-    /* ── CHATBOT SECTION ── */
-    .bot-section {
-      background: var(--ink);
-      color: var(--bg);
-      padding: 4rem 2rem;
-    }
-
-    .bot-inner {
-      max-width: 860px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: start;
-    }
 
     @media (max-width: 680px) {
-      .bot-inner { grid-template-columns: 1fr; }
     }
 
-    .bot-intro h2 {
-      font-family: var(--serif);
-      font-size: 1.8rem;
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 1rem;
-      color: var(--bg);
-    }
-
-    .bot-intro h2 em {
-      font-style: italic;
-      color: var(--red);
-    }
-
-    .bot-intro p {
-      font-size: 0.95rem;
-      line-height: 1.7;
-      color: #A8A49C;
-      margin-bottom: 1rem;
-    }
-
-    .bot-prompts {
-      margin-top: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .bot-prompt-label {
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #6A6660;
-      margin-bottom: 0.25rem;
-    }
-
-    .bot-prompt {
-      font-size: 0.875rem;
-      color: #C8C4BC;
-      padding: 0.6rem 0.9rem;
-      border: 1px solid #3A3A38;
-      font-style: italic;
-      cursor: default;
-      transition: border-color 0.15s;
-    }
-
-    /* ── CHATBOT EMBED PLACEHOLDER ── */
-    .bot-embed-area {
-      background: #242422;
-      border: 1px solid #3A3A38;
-      padding: 1.5rem;
-      min-height: 320px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-    }
-
-    .bot-placeholder {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: #6A6660;
-      letter-spacing: 0.08em;
-      line-height: 1.8;
-    }
-
-    .bot-placeholder strong {
-      display: block;
-      color: #8A8880;
-      margin-bottom: 0.5rem;
-      font-size: 12px;
-    }
 
     /* ── FOOTER ── */
     footer {
@@ -474,11 +384,147 @@
       .header-date { display: none; }
       .hero { padding: 3rem 1.25rem 2.5rem; }
       .content-grid { padding: 0 1.25rem 3rem; }
-      .bot-section { padding: 3rem 1.25rem; }
       footer { padding: 1.25rem; }
       .case-divider { padding: 0 1.25rem; }
       .pull-quote { padding: 0 1.25rem; }
     }
+    /* ── INLINE CHAT BOX (below the cover) ── */
+    .chat-wrap {
+      max-width: 760px;
+      margin: 3rem auto 1rem;
+      padding: 0 2rem;
+    }
+    .chat-eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--red);
+      text-align: center;
+      margin-bottom: 0.75rem;
+    }
+    .chat-title {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 900;
+      text-align: center;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+    .chat-title em { font-style: italic; color: var(--red); }
+    .chat-sub {
+      text-align: center;
+      color: var(--mid);
+      font-size: 0.95rem;
+      max-width: 520px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.6;
+    }
+    .chat-box {
+      border: 1px solid var(--ink);
+      border-radius: 2px;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .chat-header {
+      background: var(--ink);
+      color: var(--bg);
+      padding: 0.85rem 1.25rem;
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .chat-header .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #4ade80; flex-shrink: 0;
+    }
+    .chat-msgs {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      min-height: 220px;
+      max-height: 420px;
+      overflow-y: auto;
+    }
+    .cmsg {
+      max-width: 85%;
+      padding: 0.7rem 1rem;
+      font-size: 0.95rem;
+      line-height: 1.55;
+      border-radius: 2px;
+    }
+    .cmsg.user {
+      align-self: flex-end;
+      background: var(--ink);
+      color: var(--bg);
+    }
+    .cmsg.bot {
+      align-self: flex-start;
+      background: #ECEAE3;
+      color: var(--ink);
+      border-left: 2px solid var(--red);
+    }
+    .chat-foot {
+      display: flex;
+      gap: 0.6rem;
+      padding: 0.85rem 1rem;
+      border-top: 1px solid var(--rule);
+    }
+    .chat-foot input {
+      flex: 1;
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      padding: 0.6rem 0.85rem;
+      font-family: var(--body);
+      font-size: 0.95rem;
+      background: #fff;
+      color: var(--ink);
+      outline: none;
+    }
+    .chat-foot input:focus { border-color: var(--ink); }
+    .chat-foot button {
+      background: var(--red);
+      color: #fff;
+      border: none;
+      border-radius: 2px;
+      padding: 0 1.25rem;
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .chat-foot button:hover { opacity: 0.88; }
+    .chat-prompts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      justify-content: center;
+    }
+    .chat-prompt {
+      font-size: 0.8rem;
+      color: var(--ink);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      padding: 0.4rem 0.75rem;
+      cursor: pointer;
+      font-style: italic;
+      background: var(--bg);
+      transition: border-color 0.15s;
+    }
+    .chat-prompt:hover { border-color: var(--red); }
+    @media (max-width: 480px) {
+      .chat-wrap { padding: 0 1.25rem; }
+    }
+
   </style>
 </head>
 <body>
@@ -491,6 +537,79 @@
     />
   </div>
 
+  <!-- INLINE CHAT BOX -->
+  <div class="chat-wrap" id="ask">
+    <p class="chat-eyebrow">Under examination &middot; 1933</p>
+    <h2 class="chat-title">Question <em>Ferdinand Pecora</em></h2>
+    <p class="chat-sub">I am Ferdinand Pecora, chief counsel to the Senate Banking Committee. Put your questions to me directly.</p>
+
+    <div class="chat-box">
+      <div class="chat-header"><span class="dot"></span> Ferdinand Pecora &mdash; sworn testimony</div>
+      <div class="chat-msgs" id="cmsgs"></div>
+      <div class="chat-foot">
+        <input id="cin" placeholder="Put your question to Mr. Pecora..." />
+        <button id="csend">Ask</button>
+      </div>
+    </div>
+
+    <div class="chat-prompts" id="cprompts">
+      <span class="chat-prompt">What did J.P. Morgan admit under oath?</span>
+      <span class="chat-prompt">How did Wiggin short his own bank's stock?</span>
+      <span class="chat-prompt">Why did you go after the bankers so hard?</span>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    var W = "https://pecora-gpt.osamakmahmood.workers.dev";
+    var H = [];
+    var msgs = document.getElementById("cmsgs");
+    var input = document.getElementById("cin");
+
+    function add(cls, text){
+      var d = document.createElement("div");
+      d.className = "cmsg " + cls;
+      d.textContent = text;
+      msgs.appendChild(d);
+      msgs.scrollTop = msgs.scrollHeight;
+      return d;
+    }
+
+    add("bot", "I have testified before the Senate and I will testify before you. Ask what you wish about the Wall Street investigation, and you shall have the truth as I found it.");
+
+    async function send(){
+      var t = input.value.trim();
+      if(!t) return;
+      input.value = "";
+      add("user", t);
+      H.push({ role: "user", content: t });
+      var b = add("bot", "...");
+      try {
+        var r = await fetch(W, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ messages: H })
+        });
+        var d = await r.json();
+        var reply = (d.content && d.content[0] && d.content[0].text) ? d.content[0].text : "I find I cannot answer that at present.";
+        b.textContent = reply;
+        H.push({ role: "assistant", content: reply });
+      } catch(e){
+        b.textContent = "The line to my chambers appears to be down. Try again shortly.";
+      }
+    }
+
+    document.getElementById("csend").onclick = send;
+    input.addEventListener("keydown", function(e){ if(e.key === "Enter") send(); });
+    document.getElementById("cprompts").addEventListener("click", function(e){
+      if(e.target.classList.contains("chat-prompt")){
+        input.value = e.target.textContent;
+        send();
+      }
+    });
+  })();
+  </script>
+
   <header>
     <span class="site-label">Senate Banking &amp; Currency Committee — <strong>Pecora Investigation</strong></span>
     <span class="header-date">1933&ndash;1934</span>
@@ -501,7 +620,7 @@
     <p class="hero-eyebrow">Chief Counsel &mdash; United States Senate</p>
     <h1>The man who put<br /><em>Wall Street on trial</em></h1>
     <p class="hero-deck">Ferdinand Pecora, a Sicilian immigrant and former Manhattan prosecutor, spent eighteen months dismantling the myths of American high finance — and built the modern regulatory state in the wreckage.</p>
-    <a href="#ask" class="hero-cta">Ask the Pecora Bot</a>
+    <a href="#ask" class="hero-cta">Question Pecora yourself</a>
   </section>
 
   <!-- CASE FILE DIVIDER -->
@@ -574,44 +693,6 @@
     </div>
 
   </div>
-
-  <!-- CHATBOT SECTION -->
-  <section class="bot-section" id="ask">
-    <div class="bot-inner">
-
-      <div class="bot-intro">
-        <h2>Ask the<br /><em>Pecora Bot</em></h2>
-        <p>This chatbot is trained on primary sources from the Pecora investigation — the hearings, his memoir Wall Street Under Oath, and historical accounts of the commission's findings.</p>
-        <p>Ask it about the witnesses, the tactics, the fraud, the legislation, or the man himself.</p>
-        <div class="bot-prompts">
-          <p class="bot-prompt-label">Try asking</p>
-          <p class="bot-prompt">"What did J.P. Morgan admit under oath?"</p>
-          <p class="bot-prompt">"How did Wiggin short his own bank's stock?"</p>
-          <p class="bot-prompt">"What was the preferred list?"</p>
-        </div>
-      </div>
-
-      <div class="bot-embed-area">
-        <script>
-        (function(){
-        var W="[object Object]",B="PecoraGPT",WM="Hi! Ask me anything about Ferdinand Pecora and the Wall Street investigations.",A="#1d569f",H=[],O=false;
-        W="https://pecora-gpt.osamakmahmood.workers.dev/";
-        var s=document.createElement("style");
-        s.textContent="#rb{position:fixed;bottom:24px;right:24px;width:54px;height:54px;border-radius:50%;background:"+A+";border:none;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,.2);display:flex;align-items:center;justify-content:center;z-index:9998;}#rw{position:fixed;bottom:90px;right:24px;width:360px;max-height:520px;border-radius:16px;background:#fff;box-shadow:0 4px 24px rgba(0,0,0,.15);display:none;flex-direction:column;z-index:9999;font-family:system-ui,sans-serif;overflow:hidden;}#rh{background:"+A+";color:#fff;padding:14px 16px;font-weight:600;font-size:15px;}#rm{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;max-height:340px;}.rm{max-width:82%;padding:9px 13px;border-radius:12px;font-size:14px;line-height:1.5;}.ru{align-self:flex-end;background:"+A+";color:#fff;border-bottom-right-radius:3px;}.rb2{align-self:flex-start;background:#f3f4f6;color:#111;border-bottom-left-radius:3px;}#rf{display:flex;gap:8px;padding:10px 12px;border-top:1px solid #eee;}#ri{flex:1;border:1px solid #ddd;border-radius:8px;padding:8px 12px;font-size:14px;outline:none;}#rs{background:"+A+";color:#fff;border:none;border-radius:8px;padding:8px 14px;cursor:pointer;font-size:14px;}";
-        document.head.appendChild(s);
-        var btn=document.createElement("button");btn.id="rb";btn.innerHTML='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>';btn.onclick=function(){O=!O;document.getElementById("rw").style.display=O?"flex":"none";};document.body.appendChild(btn);
-        var win=document.createElement("div");win.id="rw";win.innerHTML='<div id="rh">'+B+'</div><div id="rm"></div><div id="rf"><input id="ri" placeholder="Ask a question..."/><button id="rs">Send</button></div>';document.body.appendChild(win);
-        document.getElementById("rs").onclick=send;document.getElementById("ri").addEventListener("keydown",function(e){if(e.key==="Enter")send();});
-        addMsg("rb2",WM);
-        function addMsg(cls,text){var d=document.createElement("div");d.className="rm "+cls;d.textContent=text;var m=document.getElementById("rm");m.appendChild(d);m.scrollTop=m.scrollHeight;return d;}
-        async function send(){var i=document.getElementById("ri"),t=i.value.trim();if(!t)return;i.value="";addMsg("ru",t);H.push({role:"user",content:t});var b=addMsg("rb2","...");try{var r=await fetch(W,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({messages:H})});var d=await r.json();var rep=d.content&&d.content[0]&&d.content[0].text?d.content[0].text:"Sorry, no response.";b.textContent=rep;H.push({role:"assistant",content:rep});}catch(e){b.textContent="Error: "+e.message;}}
-        })();
-        </script>
-        
-      </div>
-
-    </div>
-  </section>
 
   <footer>
     <span class="footer-note">Ferdinand Pecora, 1882&ndash;1971</span>
